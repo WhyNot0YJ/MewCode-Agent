@@ -1,0 +1,12 @@
+services:
+  mewcode:
+    build: .
+    image: mewcode:latest
+    stdin_open: true
+    tty: true
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - TERM=${TERM:-xterm-256color}
+    volumes:
+      - ./config.yaml:/root/.mewcode/config.yaml:ro
+    working_dir: /app
